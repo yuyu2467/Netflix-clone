@@ -28,7 +28,7 @@ function App(){
           <Route path="/category/netflix_originals" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchNetflixOriginals" genre="Netflix Originals"/>}/>
           <Route path="/category/romance" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchRomanceMovies" genre="Romance Movies"/>}/>
           <Route path="/category/trending" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchTrending" genre="Trending"/>}/>
-          <Route path="/category/trending" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchDocumentaries" genre="Documentaries"/>}/>
+          <Route path="/category/documentaries" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchDocumentaries" genre="Documentaries"/>}/>
           <Redirect to="/movies"/>
        </>
       }
