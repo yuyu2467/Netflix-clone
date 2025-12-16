@@ -1,0 +1,18 @@
+.focus-mode-toggle-container {
+  margin: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.focus-mode-toggle-container label {
+  margin-right: 10px;
+}
+
+.focus-mode-indicator {
+  margin-left: 20px;
+  padding: 5px 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  border-radius: 5px;
+}

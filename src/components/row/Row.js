@@ -39,7 +39,7 @@ function Row(props) {
     }
 
     return (
-        <div className={styles.Row}>
+        <div className={`${styles.Row} ${props.isHighlighted ? styles.highlighted : ''} ${props.isEmphasized ? styles.emphasized : ''}`}>
             <Link to={linksObject[props.type]}> <h1>{props.genre}</h1> </Link>
             <div className={styles.Row_images}>
             {movies.map((movie) => {

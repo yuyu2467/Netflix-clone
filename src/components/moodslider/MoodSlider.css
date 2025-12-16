@@ -1,0 +1,21 @@
+.mood-slider-container {
+  margin: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.mood-slider-container label {
+  margin-right: 10px;
+}
+
+.mood-slider-container input[type="range"] {
+  width: 200px;
+}
+
+.mood-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  margin-left: 10px;
+}
