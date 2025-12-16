@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import Navbar from '../../components/navbar/Navbar';
 import { SettingsContext } from '../../contexts/SettingsContext';
 import Header from "../../components/header/Header";
 import Nav from "../../components/navbar/Nav";
+import Row from '../../components/row/Row';
 
 function MoviesPage(){
   const { mood, time } = useContext(SettingsContext);
