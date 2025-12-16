@@ -3,6 +3,9 @@ import {NavLink, withRouter} from "react-router-dom";
 import { FiGift } from 'react-icons/fi';
 import { FaBell } from 'react-icons/fa';
 import styles from "./styles/Nav.module.css";
+import FocusModeToggle from '../focusmodetoggle/FocusModeToggle';
+import MoodSlider from '../moodslider/MoodSlider';
+import TimeSelector from '../timeselector/TimeSelector';
 import auth from "../../firebase/firebaseConfig";
 
 function Nav(props) {
@@ -50,6 +53,9 @@ function Nav(props) {
             </div>
 
             <div className={styles.Nav__2}>
+            <MoodSlider />
+            <TimeSelector />
+            <FocusModeToggle />
             <FiGift className={styles.icons}/>
             <FaBell className={styles.icons}/>
 

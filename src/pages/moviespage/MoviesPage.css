@@ -1,0 +1,11 @@
+.movies-page.mood-sad {
+  background-color: #2c3e50;
+}
+
+.movies-page.mood-neutral {
+  background-color: #34495e;
+}
+
+.movies-page.mood-happy {
+  background-color: #1abc9c;
+}

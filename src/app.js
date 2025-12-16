@@ -6,10 +6,13 @@ import HomePage from "./pages/homepage/HomePage";
 import CategoryPage from "./pages/categorypage/CategoryPage";
 import SignInPage from "./pages/signinpage/SignInPage";
 import {UserContext} from "./contexts/UserContext";
+import { SettingsContext } from "./contexts/SettingsContext";
 
 function App(){
      let user = useContext(UserContext);
+     const { focusMode } = useContext(SettingsContext);
   return (
+    <div className={focusMode ? 'focus-mode' : ''}>
     <Switch>
       {!user ?
        <>
