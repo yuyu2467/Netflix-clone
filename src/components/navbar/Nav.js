@@ -4,6 +4,7 @@ import { FiGift } from 'react-icons/fi';
 import { FaBell } from 'react-icons/fa';
 import styles from "./styles/Nav.module.css";
 import FocusModeToggle from '../focusmodetoggle/FocusModeToggle';
+import ColorBlindModeToggle from '../colorblindmodetoggle/ColorBlindModeToggle';
 import MoodSlider from '../moodslider/MoodSlider';
 import TimeSelector from '../timeselector/TimeSelector';
 import auth from "../../firebase/firebaseConfig";
@@ -56,6 +57,7 @@ function Nav(props) {
             <MoodSlider />
             <TimeSelector />
             <FocusModeToggle />
+            <ColorBlindModeToggle />
             <FiGift className={styles.icons}/>
             <FaBell className={styles.icons}/>
 

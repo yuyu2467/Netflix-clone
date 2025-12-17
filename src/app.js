@@ -5,6 +5,7 @@ import MoviesPage from "./pages/moviespage/MoviesPage";
 import HomePage from "./pages/homepage/HomePage";
 import CategoryPage from "./pages/categorypage/CategoryPage";
 import SignInPage from "./pages/signinpage/SignInPage";
+import AgeVerificationPage from "./pages/ageverificationpage/AgeVerificationPage";
 import {UserContext} from "./contexts/UserContext";
 import { SettingsContext } from "./contexts/SettingsContext";
 
@@ -23,6 +24,7 @@ function App(){
        </>
             :
       <>
+          <Route path="/age-verification" exact component={AgeVerificationPage} />
           <Route path="/movies" exact component={MoviesPage}/>
           <Route path="/category/action" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchActionMovies" genre="Action Movies"/>}/>
           <Route path="/category/horror" exact render={(routeProps) => <CategoryPage {...routeProps} type="fetchHorrorMovies" genre="Horror Movies"/>}/>

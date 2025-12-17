@@ -32,12 +32,12 @@ function Login(props) {
     if (props.method === "signUp") {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then((res) => props.history.push("/movies"))
+        .then((res) => props.history.push("/age-verification"))
         .catch((err) => showError(err.message));
     } else {
       auth
         .signInWithEmailAndPassword(email, password)
-        .then((res) => props.history.push("/movies"))
+        .then((res) => props.history.push("/age-verification"))
         .catch((err) => showError(err.message));
     }
   };
