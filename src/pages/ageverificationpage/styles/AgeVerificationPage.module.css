@@ -1,0 +1,46 @@
+.ageVerificationPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #141414;
+    color: #fff;
+}
+
+.ageVerificationBox {
+    background-color: #000;
+    padding: 40px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.ageVerificationBox h1 {
+    margin-bottom: 20px;
+}
+
+.ageVerificationBox p {
+    margin-bottom: 20px;
+}
+
+.ageVerificationBox input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.ageVerificationBox button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e50914;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    color: #ffa00a;
+}

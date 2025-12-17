@@ -1,0 +1,31 @@
+body.color-blind-mode {
+    --main-bg-color: #000000;
+    --text-color: #ffffff;
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
+    --secondary-color: #ffc107;
+    --secondary-color-hover: #e0a800;
+    --netflix-red: #007bff;
+    --netflix-red-hover: #0056b3;
+
+    background-color: var(--main-bg-color);
+    color: var(--text-color);
+}
+
+body.color-blind-mode .Nav {
+    background-color: var(--main-bg-color) !important;
+}
+
+body.color-blind-mode .signIn_btn,
+body.color-blind-mode .btn-primary {
+    background-color: var(--primary-color);
+}
+
+body.color-blind-mode .signIn_btn:hover,
+body.color-blind-mode .btn-primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+body.color-blind-mode .movie-card {
+    border: 1px solid var(--primary-color);
+}
