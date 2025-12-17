@@ -44,6 +44,22 @@
     margin-bottom: 20px;
 }
 
+.password_container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password_toggle {
+    background: transparent;
+    border: none;
+    color: #8c8c8c;
+    cursor: pointer;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+}
+
 .signIn__form input:last-of-type {
     margin-bottom: 30px;
 }

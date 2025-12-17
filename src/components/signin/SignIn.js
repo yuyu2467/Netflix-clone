@@ -10,6 +10,11 @@ function Login(props) {
   let [password, setPassword] = useState(user.password || "");
   let [checked, setChecked] = useState(false);
   let [error, setError] = useState(undefined);
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   const showError = (error) => {
     setError(error);
@@ -66,12 +71,22 @@ function Login(props) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <div className={styles.password_container}>
+          <input
+            type={passwordShown ? "text" : "password"}
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button
+            type="button"
+            onClick={togglePasswordVisiblity}
+            className={styles.password_toggle}
+            aria-label={passwordShown ? "Hide password" : "Show password"}
+          >
+            {passwordShown ? "HIDE" : "SHOW"}
+          </button>
+        </div>
 
         <button className={styles.signIn_btn}>
           {props.method === "signIn" ? "Sign In" : "Sign Up"}
