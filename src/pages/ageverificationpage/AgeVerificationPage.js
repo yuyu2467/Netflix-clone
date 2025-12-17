@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { signOut } from "firebase/auth";
 import auth from '../../firebase/firebaseConfig';
 import styles from './styles/AgeVerificationPage.module.css';
 
@@ -12,7 +13,7 @@ function AgeVerificationPage() {
         let logoutTimer;
         if (showDisclaimer) {
             logoutTimer = setTimeout(() => {
-                auth.signOut().then(() => {
+                signOut(auth).then(() => {
                     history.push('/');
                 });
             }, 30 * 60 * 1000); // 30 minutes

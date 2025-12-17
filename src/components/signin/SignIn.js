@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../firebase/firebaseConfig";
 import styles from "./styles/SignIn.module.css";
 
@@ -30,13 +31,11 @@ function Login(props) {
     }
 
     if (props.method === "signUp") {
-      auth
-        .createUserWithEmailAndPassword(email, password)
+      createUserWithEmailAndPassword(auth, email, password)
         .then((res) => props.history.push("/age-verification"))
         .catch((err) => showError(err.message));
     } else {
-      auth
-        .signInWithEmailAndPassword(email, password)
+      signInWithEmailAndPassword(auth, email, password)
         .then((res) => props.history.push("/age-verification"))
         .catch((err) => showError(err.message));
     }
