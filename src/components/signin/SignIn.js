@@ -60,13 +60,17 @@ function Login(props) {
       )}
 
       <form className={styles.signIn__form}>
+        <label htmlFor="email" className="visually-hidden">Email</label>
         <input
+          id="email"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <label htmlFor="password" className="visually-hidden">Password</label>
         <input
+          id="password"
           type="password"
           placeholder="Password"
           value={password}
