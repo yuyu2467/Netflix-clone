@@ -1,16 +1,59 @@
-import React, {useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {Route, Switch, Redirect} from "react-router-dom";
 import "./App.css";
 import MoviesPage from "./pages/moviespage/MoviesPage";
 import HomePage from "./pages/homepage/HomePage";
 import CategoryPage from "./pages/categorypage/CategoryPage";
 import SignInPage from "./pages/signinpage/SignInPage";
+import AgeVerificationPage from "./pages/ageverificationpage/AgeVerificationPage";
+import CategorySelectionPage from "./pages/categoryselectionpage/CategorySelectionPage";
 import {UserContext} from "./contexts/UserContext";
 import { SettingsContext } from "./contexts/SettingsContext";
 
 function App(){
+     const [ageVerified, setAgeVerified] = useState(false);
+     const [categoriesSelected, setCategoriesSelected] = useState(false);
      let user = useContext(UserContext);
      const { focusMode } = useContext(SettingsContext);
+
+     useEffect(() => {
+        const ageStatus = localStorage.getItem('ageVerified');
+        const areCategoriesSelected = localStorage.getItem('categoriesSelected') === 'true';
+
+        if (ageStatus === 'minor') {
+            const sessionStart = localStorage.getItem('sessionStart');
+            if (sessionStart && (Date.now() - parseInt(sessionStart, 10)) > 30 * 60 * 1000) {
+                localStorage.removeItem('ageVerified');
+                localStorage.removeItem('sessionStart');
+                localStorage.removeItem('categoriesSelected');
+                setAgeVerified(false);
+                setCategoriesSelected(false);
+                return;
+            }
+        }
+
+        if (ageStatus === 'adult' || ageStatus === 'minor') {
+            setAgeVerified(true);
+        }
+        setCategoriesSelected(areCategoriesSelected);
+     }, []);
+
+     const handleAgeVerified = () => {
+        setAgeVerified(true);
+     };
+
+     const handleCategoriesSelected = () => {
+        setCategoriesSelected(true);
+     };
+
+     if (!ageVerified) {
+        return <AgeVerificationPage onAgeVerified={handleAgeVerified} />;
+     }
+
+     if (!categoriesSelected) {
+        return <CategorySelectionPage onCategoriesSelected={handleCategoriesSelected} />;
+     }
+
   return (
     <div className={focusMode ? 'focus-mode' : ''}>
     <Switch>
