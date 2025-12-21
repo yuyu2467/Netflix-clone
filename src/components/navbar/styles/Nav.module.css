@@ -68,6 +68,13 @@
     font-size: 25px;
 }
 
+.iconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+}
+
 @media screen and (max-width: 1200px) {
     .Nav__1 {
         flex-basis: 80%;

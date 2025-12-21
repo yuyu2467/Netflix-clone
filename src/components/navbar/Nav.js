@@ -56,8 +56,8 @@ function Nav(props) {
             <MoodSlider />
             <TimeSelector />
             <FocusModeToggle />
-            <FiGift className={styles.icons}/>
-            <FaBell className={styles.icons}/>
+            <button aria-label="Gift" className={`${styles.icons} ${styles.iconButton}`}><FiGift /></button>
+            <button aria-label="Notifications" className={`${styles.icons} ${styles.iconButton}`}><FaBell /></button>
 
             <img className={styles.Nav_smiley} src="https://i.pinimg.com/736x/b4/0b/51/b40b51418293936a6e0ad09ffa229cb7.jpg" alt="smiley-logo"/>
              <button className={styles.logout} onClick={handleLogOut}>Logout</button>
