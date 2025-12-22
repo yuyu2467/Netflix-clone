@@ -10,6 +10,7 @@ function Login(props) {
   let [password, setPassword] = useState(user.password || "");
   let [checked, setChecked] = useState(false);
   let [error, setError] = useState(undefined);
+  let [isLoading, setIsLoading] = useState(false);
 
   const showError = (error) => {
     setError(error);
@@ -20,6 +21,7 @@ function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     let rememberedUser = { email: email, password: password };
 
@@ -32,13 +34,25 @@ function Login(props) {
     if (props.method === "signUp") {
       auth
         .createUserWithEmailAndPassword(email, password)
-        .then((res) => props.history.push("/movies"))
-        .catch((err) => showError(err.message));
+        .then((res) => {
+          props.history.push("/movies");
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          showError(err.message);
+          setIsLoading(false);
+        });
     } else {
       auth
         .signInWithEmailAndPassword(email, password)
-        .then((res) => props.history.push("/movies"))
-        .catch((err) => showError(err.message));
+        .then((res) => {
+          props.history.push("/movies");
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          showError(err.message);
+          setIsLoading(false);
+        });
     }
   };
 
@@ -73,8 +87,14 @@ function Login(props) {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className={styles.signIn_btn}>
-          {props.method === "signIn" ? "Sign In" : "Sign Up"}
+        <button className={styles.signIn_btn} disabled={isLoading}>
+          {isLoading
+            ? props.method === "signIn"
+              ? "Signing In..."
+              : "Signing Up..."
+            : props.method === "signIn"
+            ? "Sign In"
+            : "Sign Up"}
         </button>
       </form>
 
