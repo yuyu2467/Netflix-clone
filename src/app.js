@@ -5,12 +5,37 @@ import MoviesPage from "./pages/moviespage/MoviesPage";
 import HomePage from "./pages/homepage/HomePage";
 import CategoryPage from "./pages/categorypage/CategoryPage";
 import SignInPage from "./pages/signinpage/SignInPage";
+import AgeVerificationPage from "./pages/ageverificationpage/AgeVerificationPage";
+import CategorySelectionPage from "./pages/categoryselectionpage/CategorySelectionPage";
+import SessionExpiredPage from "./pages/sessionexpiredpage/SessionExpiredPage";
 import {UserContext} from "./contexts/UserContext";
 import { SettingsContext } from "./contexts/SettingsContext";
 
 function App(){
      let user = useContext(UserContext);
      const { focusMode } = useContext(SettingsContext);
+     const hasCompletedOnboarding = localStorage.getItem('hasCompletedOnboarding') === 'true';
+     const ageVerified = localStorage.getItem('ageVerified') === 'true';
+     const isMinor = localStorage.getItem('isMinor') === 'true';
+     const minorSessionStartTime = localStorage.getItem('minorSessionStartTime');
+
+    if (isMinor) {
+        const thirtyMinutes = 30 * 60 * 1000;
+        if (Date.now() - minorSessionStartTime > thirtyMinutes) {
+            return <SessionExpiredPage />;
+        }
+    }
+
+    if (!hasCompletedOnboarding) {
+    return (
+      <Switch>
+        <Route path="/age-verification" component={AgeVerificationPage} />
+        <Route path="/category-selection" component={CategorySelectionPage} />
+        <Redirect to={ageVerified ? "/category-selection" : "/age-verification"} />
+      </Switch>
+    );
+  }
+
   return (
     <div className={focusMode ? 'focus-mode' : ''}>
     <Switch>
@@ -36,6 +61,7 @@ function App(){
        </>
       }
     </Switch>
+  </div>
   )
 }
 
