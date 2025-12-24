@@ -11,11 +11,13 @@ const FocusModeToggle = () => {
 
   return (
     <div className="focus-mode-toggle-container">
-      <label htmlFor="focus-mode">Focus Mode:</label>
-      <button id="focus-mode" onClick={handleToggle}>
-        {focusMode ? 'On' : 'Off'}
+      <button
+        id="focus-mode"
+        onClick={handleToggle}
+        aria-pressed={focusMode}
+      >
+        Focus Mode: {focusMode ? 'On' : 'Off'}
       </button>
-      {focusMode && <div className="focus-mode-indicator">Focus Mode is On</div>}
     </div>
   );
 };
