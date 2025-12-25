@@ -77,25 +77,33 @@ function Login(props) {
       )}
 
       <form className={styles.signIn__form}>
+        <label htmlFor="email" className={styles['visually-hidden']}>Email</label>
         <input
+          id="email"
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
+        <label htmlFor="password" className={styles['visually-hidden']}>Password</label>
         <input
+          id="password"
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         {props.method === "signUp" && (
-          <input
-            type="number"
-            placeholder="Age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          />
+          <>
+            <label htmlFor="age" className={styles['visually-hidden']}>Age</label>
+            <input
+              id="age"
+              type="number"
+              placeholder="Age"
+              value={age}
+              onChange={(e) => setAge(e.target.value)}
+            />
+          </>
         )}
 
         <button className={styles.signIn_btn}>
