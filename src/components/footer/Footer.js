@@ -10,7 +10,7 @@ function Footer() {
              <p>Got a question? Call 000-800-040-1843</p>
                 <ul className={styles.footer__items}>
                     {footerItems.map((item, idx) => {
-                        return <li key={idx}><a href="#">{item}</a></li>
+                        return <li key={idx}><button style={{background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', textDecoration: 'underline', padding: 0}}>{item}</button></li>
                     })}
                 </ul>
 

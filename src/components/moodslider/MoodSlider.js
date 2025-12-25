@@ -29,9 +29,9 @@ const MoodSlider = () => {
         onChange={handleMoodChange}
       />
       <div className="mood-labels">
-        <span>Sad</span>
-        <span>Neutral</span>
-        <span>Happy</span>
+        <span role="img" aria-label="sad">😢</span>
+        <span role="img" aria-label="neutral">😐</span>
+        <span role="img" aria-label="happy">😃</span>
       </div>
     </div>
   );

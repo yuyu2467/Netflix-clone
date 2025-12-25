@@ -20,7 +20,7 @@ function CategoryPage(props) {
         }
 
         fetchMovies();
-    }, [page])
+    }, [page, movies, props.type])
 
     function handleScroll(e){
         var {scrollTop, clientHeight, scrollHeight} = e.currentTarget;

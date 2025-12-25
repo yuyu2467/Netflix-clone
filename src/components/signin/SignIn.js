@@ -8,6 +8,7 @@ function Login(props) {
 
   let [email, setEmail] = useState(user.email || "");
   let [password, setPassword] = useState(user.password || "");
+  let [age, setAge] = useState("");
   let [checked, setChecked] = useState(false);
   let [error, setError] = useState(undefined);
 
@@ -30,6 +31,22 @@ function Login(props) {
     }
 
     if (props.method === "signUp") {
+      if (!age) {
+        showError("Please enter your age.");
+        return;
+      }
+      if (parseInt(age) < 18) {
+        const currentTime = new Date().getTime();
+        const restrictionData = {
+          restricted: true,
+          startTime: currentTime
+        };
+        localStorage.setItem("ageRestriction", JSON.stringify(restrictionData));
+        alert("You will be logged out automatically after 30 mins due to age restriction.");
+      } else {
+        localStorage.removeItem("ageRestriction");
+      }
+
       auth
         .createUserWithEmailAndPassword(email, password)
         .then((res) => props.history.push("/movies"))
@@ -72,6 +89,14 @@ function Login(props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        {props.method === "signUp" && (
+          <input
+            type="number"
+            placeholder="Age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          />
+        )}
 
         <button className={styles.signIn_btn}>
           {props.method === "signIn" ? "Sign In" : "Sign Up"}
@@ -106,7 +131,7 @@ function Login(props) {
         <p>
           This page is protected by Google reCAPTCHA to ensure you're not a bot.
         </p>
-        <a href="#">Learn More.</a>
+        <button style={{ background: 'none', border: 'none', color: 'inherit', cursor: 'pointer', textDecoration: 'underline', padding: 0 }}>Learn More.</button>
       </div>
     </div>
   );

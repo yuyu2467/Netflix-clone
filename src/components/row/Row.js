@@ -30,7 +30,7 @@ function Row(props) {
         fetchMovies();
         
         return () => {isMounted = false};
-    }, [])
+    }, [props.type])
 
 
     const handleClick = (movie) => {
