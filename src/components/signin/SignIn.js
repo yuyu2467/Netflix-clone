@@ -11,12 +11,20 @@ function Login(props) {
   let [age, setAge] = useState("");
   let [checked, setChecked] = useState(false);
   let [error, setError] = useState(undefined);
+  let [info, setInfo] = useState(undefined);
 
   const showError = (error) => {
     setError(error);
     setTimeout(() => {
       setError(undefined);
     }, 5000);
+  };
+
+  const showInfo = (message) => {
+    setInfo(message);
+    setTimeout(() => {
+      setInfo(undefined);
+    }, 10000); // Hide after 10 seconds
   };
 
   const handleSubmit = (e) => {
@@ -42,7 +50,7 @@ function Login(props) {
           startTime: currentTime
         };
         localStorage.setItem("ageRestriction", JSON.stringify(restrictionData));
-        alert("You will be logged out automatically after 30 mins due to age restriction.");
+        showInfo("You will be logged out automatically after 30 mins due to age restriction.");
       } else {
         localStorage.removeItem("ageRestriction");
       }
@@ -69,10 +77,29 @@ function Login(props) {
 
       {error && (
         <p className={styles.error}>
-          <span onClick={() => setError("")} className={styles.error__close}>
+          <button
+            type="button"
+            onClick={() => setError("")}
+            className={styles.message__close}
+            aria-label="Dismiss message"
+          >
             &#215;
-          </span>
+          </button>
           {error}{" "}
+        </p>
+      )}
+
+      {info && (
+        <p className={styles.infoMessage}>
+          <button
+            type="button"
+            onClick={() => setInfo("")}
+            className={styles.message__close}
+            aria-label="Dismiss message"
+          >
+            &#215;
+          </button>
+          {info}
         </p>
       )}
 

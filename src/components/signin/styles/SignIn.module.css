@@ -143,10 +143,25 @@ input[type="checkbox"] {
     padding: 15px 20px;
 }
 
-.error__close {
+.message__close {
     font-size: 30px;
     cursor: pointer;
     display: block;
+    background: none;
+    border: none;
+    color: white;
+    float: right;
+    padding: 0;
+    line-height: 1;
+}
+
+.infoMessage {
+    background: #0073b1; /* Using a neutral blue for info */
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 0 0 23px;
+    color: white;
+    padding: 15px 20px;
 }
 
 @media screen and (max-width: 600px) {
