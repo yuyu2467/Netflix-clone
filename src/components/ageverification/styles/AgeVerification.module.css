@@ -1,0 +1,46 @@
+/* AgeVerification.module.css */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #141414;
+  }
+
+  .box {
+    background-color: #000000;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 0;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #fff;
+  }
+
+  .button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    background-color: #e50914;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #f6121d;
+  }
+
+  .error {
+    color: #e87c03;
+    margin-bottom: 10px;
+  }
