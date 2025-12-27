@@ -144,9 +144,20 @@ input[type="checkbox"] {
 }
 
 .error__close {
-    font-size: 30px;
+    background: transparent;
+    border: none;
+    color: white;
     cursor: pointer;
-    display: block;
+    float: right;
+    font-size: 26px;
+    line-height: 1;
+    padding: 0;
+}
+
+.error__close:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+    border-radius: 2px;
 }
 
 @media screen and (max-width: 600px) {

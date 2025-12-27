@@ -69,9 +69,14 @@ function Login(props) {
 
       {error && (
         <p className={styles.error}>
-          <span onClick={() => setError("")} className={styles.error__close}>
+          <button
+            type="button"
+            aria-label="Dismiss error message"
+            onClick={() => setError("")}
+            className={styles.error__close}
+          >
             &#215;
-          </span>
+          </button>
           {error}{" "}
         </p>
       )}
